@@ -4,10 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-    "github.com/kvnbanunu/chirpy/internal/server"
+	"sync/atomic"
+
+	"github.com/kvnbanunu/chirpy/internal/server"
 )
 
-
+type apiConfig struct {
+    fileserverHits atomic.Int32
+}
 
 func main() {
     const port = 8080
